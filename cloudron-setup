@@ -117,7 +117,7 @@ fi
 if which nginx >/dev/null || which docker >/dev/null || which node > /dev/null; then
     if [[ "${redo}" == "false" ]]; then
         echo "Error: Some packages like nginx/docker/nodejs are already installed. Cloudron requires specific versions of these packages and will install them as part of it's installation. Please start with a fresh Ubuntu install and run this script again." > /dev/stderr
-        
+        exit 1
     fi
 fi
 
