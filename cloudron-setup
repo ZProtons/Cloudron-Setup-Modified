@@ -114,12 +114,6 @@ if [[ "${ubuntu_version}" != "16.04" && "${ubuntu_version}" != "18.04" && "${ubu
     exit 1
 fi
 
-if which nginx >/dev/null || which docker >/dev/null || which node > /dev/null; then
-    if [[ "${redo}" == "false" ]]; then
-        echo "Error: Some packages like nginx/docker/nodejs are already installed. Cloudron requires specific versions of these packages and will install them as part of it's installation. Please start with a fresh Ubuntu install and run this script again." > /dev/stderr
-    fi
-fi
-
 # Install MOTD file for stack script style installations. this is removed by the trap exit handler. Heredoc quotes prevents parameter expansion
 cat > /etc/update-motd.d/91-cloudron-install-in-progress <<'EOF'
 #!/bin/bash
